@@ -5,7 +5,6 @@
     <arg name="gui" default="true" />
     <arg name="pause" default="false" />
     <arg name="world" default="$(find ros_gazebo)/worlds/env.world" />
-    <!-- <arg name="world" default="$(find ros_gazebo)/worlds/world02.world" /> -->
 
     <!-- include gazebo_ros launcher -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
