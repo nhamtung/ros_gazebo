@@ -4,14 +4,23 @@
   <gazebo reference="base_footprint">
     <material>Gazebo/Red</material>
   </gazebo>
+  <gazebo reference="base_module_under">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <gazebo reference="base_module_up">
+    <material>Gazebo/Brown</material>
+  </gazebo>
+  <gazebo reference="base_laser_front">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="base_laser_back">
+    <material>Gazebo/Blue</material>
+  </gazebo>
   <gazebo reference="left_wheel">
     <material>Gazebo/Green</material>
   </gazebo>
   <gazebo reference="right_wheel">
     <material>Gazebo/Green</material>
-  </gazebo>
-  <gazebo reference="base_laser">
-    <material>Gazebo/Blue</material>
   </gazebo>
   
   <gazebo>
