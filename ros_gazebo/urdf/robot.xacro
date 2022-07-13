@@ -56,14 +56,14 @@
       <xacro:cylinder_inertia mass="1" r="0.05" l="0.1" />
     </inertial> -->
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 3.14"/>  
+      <origin xyz="0 0 0" rpy="0 0 0"/>  
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/ms3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="blue"/>
     </visual>    
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 3.14"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/ms3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -81,14 +81,14 @@
       <xacro:cylinder_inertia mass="1" r="0.05" l="0.1" />
     </inertial> -->
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 3.14"/>  
+      <origin xyz="0 0 0" rpy="0 0 0"/>  
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/ms3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 3.14"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/ms3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
