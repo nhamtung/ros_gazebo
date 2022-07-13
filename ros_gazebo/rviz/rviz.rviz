@@ -56,7 +56,7 @@ Visualization Manager:
       Enabled: true
       Length: 1
       Name: Axes
-      Radius: 0.05000000074505806
+      Radius: 0.029999999329447746
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/Axes
@@ -74,12 +74,12 @@ Visualization Manager:
       Reference Frame: base_laser_back
       Value: true
     - Class: rviz/Axes
-      Enabled: true
+      Enabled: false
       Length: 1
       Name: Axes
       Radius: 0.009999999776482582
       Reference Frame: base_module
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -214,10 +214,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5547972917556763
+      Pitch: 0.7997970581054688
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.15727876126766205
+      Yaw: 4.332309722900391
     Saved: ~
 Window Geometry:
   Displays:
