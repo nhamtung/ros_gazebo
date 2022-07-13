@@ -8,6 +8,7 @@
   <xacro:include filename="$(find ros_gazebo)/urdf/materials.xacro" />
   <xacro:include filename="$(find ros_gazebo)/urdf/robot.gazebo" />
   <xacro:include filename="$(find ros_gazebo)/urdf/macros.xacro" />
+
 	<xacro:property name="robot_mass" value="200" />
 	<xacro:property name="robot_height" value="0.95" />
 	<xacro:property name="robot_width" value="0.48" />
@@ -18,28 +19,40 @@
   <xacro:property name="module_depth" value="0.15" />
 
   <link name="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 -1.57"/>  
   </link>
 
   <link name="base_link">
+    <pose>0 0 0 0 0 0</pose>
     <inertial>
-    <origin xyz="0 0 0.1" rpy="0 0 -1.57"/>  
+      <origin xyz="0 0 -0.07" rpy="0 0 0"/>  
       <mass value="${robot_mass}" />
       <solid_cuboid_inertia m="${robot_mass}" h="${robot_height}" w="${robot_width}" d="${robot_depth}"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0.1" rpy="0 0 -1.57"/>  
+      <origin xyz="0 0 -0.07" rpy="0 0 0"/>  
       <geometry>
-        <box size="${robot_width} ${robot_height} ${robot_depth}"/>
-        <!-- <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/> -->
+        <!-- <box size="${robot_width} ${robot_height} ${robot_depth}"/> -->
+        <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision name="base_link">
-      <origin xyz="0 0 0.1" rpy="0 0 -1.57"/>  
+      <origin xyz="0 0 -0.07" rpy="0 0 0"/>  
       <geometry>
-        <box size="${robot_width} ${robot_height} ${robot_depth}"/>
-        <!-- <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/> -->
-      </geometry>
+        <!-- <box size="${robot_width} ${robot_height} ${robot_depth}"/> -->
+        <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
+      </geometry>      
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
   </link>
   <joint name="base_link_joint" type="fixed">
@@ -67,7 +80,7 @@
       </geometry>
       <material name="orange"/>
     </visual>    
-    <collision>
+    <collision name="base_module_under">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/AMR_Module1.stl" scale="0.001 0.001 0.001"/>
@@ -92,7 +105,7 @@
       </geometry>
       <material name="brown"/>
     </visual>    
-    <collision>
+    <collision name="base_module_up">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/AMR_Module2.stl" scale="0.001 0.001 0.001"/>
@@ -124,7 +137,7 @@
       </geometry>
       <material name="blue"/>
     </visual>    
-    <collision>
+    <collision name="base_laser_front">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/ms3.stl" scale="0.001 0.001 0.001"/>
@@ -149,7 +162,7 @@
       </geometry>
       <material name="blue"/>
     </visual>
-    <collision>
+    <collision name="base_laser_back">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/ms3.stl" scale="0.001 0.001 0.001"/>
