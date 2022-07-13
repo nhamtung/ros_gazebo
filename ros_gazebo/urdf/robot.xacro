@@ -22,7 +22,7 @@
                izz="14.225" />
     </inertial> -->
     <visual>
-      <origin xyz="0 0 -0.1" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.1" rpy="0 0 1.57"/>  
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -100,7 +100,7 @@
   
   
   <xacro:link_wheel name="right_wheel" />
-  <xacro:joint_wheel name="joint_right_wheel" child="right_wheel" origin_xyz="0 0.20 0" />
+  <xacro:joint_wheel name="joint_right_wheel" child="right_wheel" origin_xyz="0 0.242 0.1" />
   <xacro:link_wheel name="left_wheel" />
-  <xacro:joint_wheel name="joint_left_wheel" child="left_wheel" origin_xyz="0 -0.20 0" />
+  <xacro:joint_wheel name="joint_left_wheel" child="left_wheel" origin_xyz="0 -0.242 0.1" />
 </robot>
