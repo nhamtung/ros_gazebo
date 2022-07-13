@@ -42,8 +42,64 @@
     <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
   </joint>
 
-  <link name="base_laser">
+  <link name="base_module"></link>
+  <joint name="base_module_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_module"/>
+    <origin xyz="0 0 0.23" rpy="0 0 -1.57"/>
+  </joint>
+  <link name="base_module_under">
+    <!-- <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1" />
+      <xacro:cylinder_inertia mass="1" r="0.05" l="0.1" />
+    </inertial> -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>  
+      <geometry>
+        <mesh filename="package://ros_gazebo/meshes/AMR_Module1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>    
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ros_gazebo/meshes/AMR_Module1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
+  <joint name="base_module_under_joint" type="fixed">
+    <parent link="base_module"/>
+    <child link="base_module_under"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+  <link name="base_module_up">
+    <!-- <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1" />
+      <xacro:cylinder_inertia mass="1" r="0.05" l="0.1" />
+    </inertial> -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>  
+      <geometry>
+        <mesh filename="package://ros_gazebo/meshes/AMR_Module2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="brown"/>
+    </visual>    
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ros_gazebo/meshes/AMR_Module2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_module_up_joint" type="fixed">
+    <parent link="base_module"/>
+    <child link="base_module_up"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_laser"></link>
   <joint name="base_laser_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_laser"/>
