@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <gazebo reference="base_footprint">
+  <gazebo reference="base_link">
     <material>Gazebo/Red</material>
   </gazebo>
-  <gazebo reference="base_module_under">
+  <!-- <gazebo reference="base_module_under">
     <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="base_module_up">
     <material>Gazebo/Brown</material>
-  </gazebo>
+  </gazebo> -->
   <gazebo reference="base_laser_front">
     <material>Gazebo/Blue</material>
   </gazebo>
@@ -31,11 +31,11 @@
       <rightJoint>joint_right_wheel</rightJoint>
       <wheelSeparation>0.484</wheelSeparation>
       <wheelDiameter>0.2</wheelDiameter>
-      <torque>0.1</torque>
+      <torque>5</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo>
   

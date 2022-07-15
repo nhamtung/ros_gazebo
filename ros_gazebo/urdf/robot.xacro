@@ -9,11 +9,11 @@
   <xacro:include filename="$(find ros_gazebo)/urdf/robot.gazebo" />
   <xacro:include filename="$(find ros_gazebo)/urdf/macros.xacro" />
 
-	<xacro:property name="robot_mass" value="200" />
-	<xacro:property name="robot_height" value="0.95" />
-	<xacro:property name="robot_width" value="0.48" />
+	<xacro:property name="robot_mass" value="5" />
+	<xacro:property name="robot_height" value="1.165" />
+	<xacro:property name="robot_width" value="0.664" />
   <xacro:property name="robot_depth" value="0.33" />
-	<xacro:property name="module_mass" value="40" />
+	<xacro:property name="module_mass" value="5" />
 	<xacro:property name="module_height" value="1.161" />
 	<xacro:property name="module_width" value="0.664" />
   <xacro:property name="module_depth" value="0.15" />
@@ -25,12 +25,12 @@
   <link name="base_link">
     <pose>0 0 0 0 0 0</pose>
     <inertial>
-      <origin xyz="0 0 -0.07" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.069" rpy="0 0 0"/>  
       <mass value="${robot_mass}" />
       <solid_cuboid_inertia m="${robot_mass}" h="${robot_height}" w="${robot_width}" d="${robot_depth}"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.07" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.069" rpy="0 0 0"/>  
       <geometry>
         <!-- <box size="${robot_width} ${robot_height} ${robot_depth}"/> -->
         <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
@@ -38,7 +38,7 @@
       <material name="red"/>
     </visual>
     <collision name="base_link">
-      <origin xyz="0 0 -0.07" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.069" rpy="0 0 0"/>  
       <geometry>
         <!-- <box size="${robot_width} ${robot_height} ${robot_depth}"/> -->
         <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
@@ -61,7 +61,7 @@
     <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
   </joint>
 
-  <link name="base_module"></link>
+  <!-- <link name="base_module"></link>
   <joint name="base_module_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_module"/>
@@ -116,7 +116,7 @@
     <parent link="base_module"/>
     <child link="base_module_up"/>
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-  </joint>
+  </joint> -->
 
   <link name="base_laser"></link>
   <joint name="base_laser_joint" type="fixed">
@@ -175,9 +175,8 @@
     <origin xyz="-0.483 -0.265 0" rpy="3.14 0 3.925"/>
   </joint>
   
-  
   <xacro:link_wheel name="right_wheel" />
-  <xacro:joint_wheel name="joint_right_wheel" child="right_wheel" origin_xyz="0 0.242 0.1" />
+  <xacro:joint_wheel name="joint_right_wheel" child="right_wheel" origin_xyz="0 0.242 0" />
   <xacro:link_wheel name="left_wheel" />
-  <xacro:joint_wheel name="joint_left_wheel" child="left_wheel" origin_xyz="0 -0.242 0.1" />
+  <xacro:joint_wheel name="joint_left_wheel" child="left_wheel" origin_xyz="0 -0.242 0" />
 </robot>
