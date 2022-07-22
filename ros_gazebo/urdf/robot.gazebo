@@ -4,12 +4,12 @@
   <gazebo reference="base_link">
     <material>Gazebo/Red</material>
   </gazebo>
-  <!-- <gazebo reference="base_module_under">
+  <gazebo reference="base_module_under">
     <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="base_module_up">
     <material>Gazebo/Brown</material>
-  </gazebo> -->
+  </gazebo>
   <gazebo reference="base_laser_front">
     <material>Gazebo/Blue</material>
   </gazebo>
