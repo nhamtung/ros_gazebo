@@ -9,11 +9,11 @@
   <xacro:include filename="$(find ros_gazebo)/urdf/robot.gazebo" />
   <xacro:include filename="$(find ros_gazebo)/urdf/macros.xacro" />
 
-	<xacro:property name="robot_mass" value="4" />
+	<xacro:property name="robot_mass" value="3" />
 	<xacro:property name="robot_height" value="1.165" />
 	<xacro:property name="robot_width" value="0.664" />
   <xacro:property name="robot_depth" value="0.33" />
-	<xacro:property name="module_mass" value="2" />
+	<xacro:property name="module_mass" value="1" />
 	<xacro:property name="module_height" value="1.161" />
 	<xacro:property name="module_width" value="0.664" />
   <xacro:property name="module_depth" value="0.15" />
@@ -22,19 +22,19 @@
 
   <link name="base_link">
     <inertial>
-      <origin xyz="0 0 -0.068" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.069" rpy="0 0 0"/>  
       <mass value="${robot_mass}" />
       <solid_cuboid_inertia m="${robot_mass}" h="${robot_height}" w="${robot_width}" d="${robot_depth}"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.068" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.069" rpy="0 0 0"/>  
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision name="base_link">
-      <origin xyz="0 0 -0.068" rpy="0 0 0"/>  
+      <origin xyz="0 0 -0.069" rpy="0 0 0"/>  
       <geometry>
         <mesh filename="package://ros_gazebo/meshes/AMR_250.stl" scale="0.001 0.001 0.001"/>
       </geometry>      
