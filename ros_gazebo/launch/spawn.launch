@@ -2,7 +2,7 @@
 <launch>
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find ros_gazebo)/urdf/robot.xacro'"/>
     
-    <arg name="x" default="95"/>        <!-- (m) -->
+    <arg name="x" default="96"/>        <!-- (m) -->
     <arg name="y" default="2"/>         <!-- (m) -->
     <arg name="z" default="0"/>         <!-- (m) -->
     <arg name="R" default="0"/>         <!-- (rad) -->

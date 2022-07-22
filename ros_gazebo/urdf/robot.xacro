@@ -9,11 +9,11 @@
   <xacro:include filename="$(find ros_gazebo)/urdf/robot.gazebo" />
   <xacro:include filename="$(find ros_gazebo)/urdf/macros.xacro" />
 
-	<xacro:property name="robot_mass" value="5" />
+	<xacro:property name="robot_mass" value="3" />
 	<xacro:property name="robot_height" value="1.165" />
 	<xacro:property name="robot_width" value="0.664" />
   <xacro:property name="robot_depth" value="0.33" />
-	<xacro:property name="module_mass" value="5" />
+	<xacro:property name="module_mass" value="1" />
 	<xacro:property name="module_height" value="1.161" />
 	<xacro:property name="module_width" value="0.664" />
   <xacro:property name="module_depth" value="0.15" />
@@ -56,7 +56,7 @@
     <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
   </joint>
 
-  <!-- <link name="base_module"></link>
+  <link name="base_module"></link>
   <joint name="base_module_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_module"/>
@@ -111,7 +111,7 @@
     <parent link="base_module"/>
     <child link="base_module_up"/>
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-  </joint> -->
+  </joint>
 
   <link name="base_laser"></link>
   <joint name="base_laser_joint" type="fixed">
