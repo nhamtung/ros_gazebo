@@ -8,15 +8,23 @@ project(ros_gazebo)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
+  tf
   rospy
+  genmsg
+  roscpp
   std_msgs
+  nav_msgs
   gazebo_ros
+  sensor_msgs
+  gazebo_msgs
+  geometry_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
+find_package(gazebo REQUIRED)
+find_package(Threads REQUIRED)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -73,6 +81,10 @@ find_package(catkin REQUIRED COMPONENTS
 #   DEPENDENCIES
 #   std_msgs
 # )
+generate_messages(
+  DEPENDENCIES
+  gazebo_msgs nav_msgs std_msgs geometry_msgs sensor_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -106,7 +118,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES ros_gazebo
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime gazebo_msgs gazebo_ros geometry_msgs nav_msgs sensor_msgs tf
 #  DEPENDS system_lib
 )
 
@@ -119,7 +131,12 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
 )
+link_directories(
+  ${GAZEBO_LIBRARY_DIRS}
+)
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS} -std=c++11" )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -150,6 +167,11 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+add_library(LiftModuleWorld SHARED plugins/lift_module_world.cpp)
+target_link_libraries(LiftModuleWorld ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
+add_library(LiftModulePlugin SHARED plugins/lift_module_plugin.cpp)
+target_link_libraries(LiftModulePlugin ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
 
 #############
 ## Install ##

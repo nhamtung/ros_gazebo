@@ -4,3 +4,4 @@
 # Test
 - Test environment: $gazebo <path_to_folder>/ros_gazebo/ros_gazebo/worlds/env.world
 - Test ros_gazebo: $roslaunch ros_gazebo my_world.launch
+- Test lift module: $roslaunch ros_gazebo join_state.launch

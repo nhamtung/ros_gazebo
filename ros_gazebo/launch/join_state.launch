@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <node name="join_state" pkg="ros_gazebo" type="join_state_publisher.py" respawn="false" output="screen"/>
+          
+</launch>
