@@ -1,0 +1,12 @@
+export CATKIN_WORKSPACE_ROOT_PATH=${HOME}/TungNV/ros_gazebo_ws
+
+export GAZEBO_PLUGIN_PATH=${CATKIN_WORKSPACE_ROOT_PATH}/devel/lib:${GAZEBO_PLUGIN_PATH}
+
+export GAZEBO_MODEL_PATH=${CATKIN_WORKSPACE_ROOT_PATH}/src/ros_gazebo/ros_gazebo/model:${GAZEBO_MODEL_PATH}
+
+export GAZEBO_RESOURCE_PATH=${CATKIN_WORKSPACE_ROOT_PATH}/src/:${GAZEBO_RESOURCE_PATH}
+
+source /usr/share/gazebo/setup.sh
+
+source devel/setup.bash
+
