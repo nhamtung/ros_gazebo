@@ -18,23 +18,19 @@ class Slider:
         self.root.mainloop()
 
     def updateValue_lift(self, event):
-        print("lift:{}".format(self.lift.get()))
+        print("join_state_publisher - lift:{}".format(self.lift.get()))
         self.join_state_publish("lift", (self.lift.get()*0.25)/100)
 
     def reset_model(self):
-        print("reset")
-        self.shift.set(50)
+        print("join_state_publisher - reset")
         self.lift.set(0)
-        self.join_state_publish("shift", 0)
         self.join_state_publish("lift", 0)
 
-    
     def join_state_publish(self, joint_name, value):
-        
-        print("pub:{}, value:{}".format(joint_name, value))
+        print("join_state_publisher - pub:{}, value:{}".format(joint_name, value))
 
-        pub = rospy.Publisher('joint_states', JointState, queue_size=10)
-        rospy.init_node('joint_state_publisher')
+        pub = rospy.Publisher('/joint_states_lift_module', JointState, queue_size=10)
+        rospy.init_node('joint_states_lift_module')
         rate = rospy.Rate(10) # 10hz
         hello_str = JointState()
         hello_str.header = Header()

@@ -34,7 +34,7 @@ namespace gazebo {
 				ROS_INFO("lift_module_plugin - %s Loaded.", model_name.c_str());
 
 				this->lift = this->model->GetJoint("lift");
-				this->joint_state = this->nh_.subscribe( "/joint_states", 200, &LiftModulePlugin::set_joint_states, this);
+				this->joint_state = this->nh_.subscribe( "/joint_states_lift_module", 200, &LiftModulePlugin::set_joint_states, this);
 
 				// Listen to the update event. This event is broadcast every
 				// simulation iteration.

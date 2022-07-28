@@ -34,28 +34,13 @@
   </xacro:macro>
 
   <xacro:macro name="joint_module" params="name parent child origin_xyz">
-    <joint name="${name}" type="fixed">
-      <!-- <joint_properties damping="1.0" friction="1.0"/> -->
+    <joint name="${name}" type="prismatic">
       <child link="${child}"/>
       <parent link="${parent}"/>
-      <!-- <pose frame=''>0 0 0 0 0 0</pose> -->
       <origin rpy="0 0 0" xyz="${origin_xyz}"/>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <lower>0</lower>
-          <upper>0.25</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
-      </axis>
+      <axis xyz="0 0 1"/>
+	    <limit lower="0.0" upper="0.25" effort="1000" velocity="1"/>
+	    <dynamics spring_reference="0" spring_stiffness="0" damping="1" friction="1"/>
       <physics>
         <ode>
           <limit>

@@ -168,8 +168,6 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS} -std=c++11" )
 #   ${catkin_LIBRARIES}
 # )
 
-add_library(LiftModuleWorld SHARED plugins/lift_module_world.cpp)
-target_link_libraries(LiftModuleWorld ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
 add_library(LiftModulePlugin SHARED plugins/lift_module_plugin.cpp)
 target_link_libraries(LiftModulePlugin ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
 

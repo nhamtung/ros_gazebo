@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
     
-    <node name="join_state" pkg="ros_gazebo" type="join_state_publisher.py" respawn="false" output="screen"/>
+    <node name="joint_states_lift_module" pkg="ros_gazebo" type="joint_states_lift_module.py" respawn="false" output="screen"/>
           
 </launch>

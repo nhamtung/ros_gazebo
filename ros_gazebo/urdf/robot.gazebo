@@ -4,10 +4,10 @@
   <gazebo reference="base_link">
     <material>Gazebo/Red</material>
   </gazebo>
-  <gazebo reference="base_module_under">
+  <gazebo reference="module_under">
     <material>Gazebo/Orange</material>
   </gazebo>
-  <gazebo reference="base_module_up">
+  <gazebo reference="module_up">
     <material>Gazebo/Brown</material>
   </gazebo>
   <gazebo reference="base_laser_front">
@@ -44,7 +44,7 @@
   </gazebo>
   
   <gazebo>
-    <plugin filename="libLiftModuleWorld.so" name="LiftModuleWorld">
+    <plugin filename="libLiftModulePlugin.so" name="LiftModulePlugin">
     </plugin>
   </gazebo>
 
