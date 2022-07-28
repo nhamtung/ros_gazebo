@@ -31,7 +31,7 @@ namespace gazebo {
 				// Store the pointer to the model
 				this->model = _parent;
 				this->model_name = model->GetName();
-				ROS_INFO("%s Loaded.", model_name.c_str());
+				ROS_INFO("lift_module_plugin - %s Loaded.", model_name.c_str());
 
 				this->lift = this->model->GetJoint("lift");
 				this->joint_state = this->nh_.subscribe( "/joint_states", 200, &LiftModulePlugin::set_joint_states, this);
@@ -48,14 +48,14 @@ namespace gazebo {
 
 		private:
 			void set_joint_states(const sensor_msgs::JointState& joint_msg) {
-				ROS_INFO("set_joint_states Callback triggered: %s", joint_msg.name[0].c_str());
-				ROS_INFO("Pos: %f", joint_msg.position[0]);
+				ROS_INFO("lift_module_plugin - set_joint_states Callback triggered: %s", joint_msg.name[0].c_str());
+				ROS_INFO("lift_module_plugin - Pos: %f", joint_msg.position[0]);
 				bool status;
 				
 				if(!strcmp("lift", joint_msg.name[0].c_str())){
-					ROS_INFO("Lift by pos: %f", joint_msg.position[0]);
+					ROS_INFO("lift_module_plugin - Lift by pos: %f", joint_msg.position[0]);
 					status = this->lift->SetPosition(0,  joint_msg.position[0]);
-					ROS_INFO("Status: %d", status);
+					ROS_INFO("lift_module_plugin - Status: %d", status);
 				}
 			}
 

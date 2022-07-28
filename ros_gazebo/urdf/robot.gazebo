@@ -43,6 +43,11 @@
     </plugin>
   </gazebo>
   
+  <gazebo>
+    <plugin filename="libLiftModuleWorld.so" name="LiftModuleWorld">
+    </plugin>
+  </gazebo>
+
   <gazebo reference="base_camera">
     <sensor type="camera" name="realsense">
       <update_rate>30.0</update_rate>

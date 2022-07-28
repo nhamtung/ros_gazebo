@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import Tkinter as tk
 import rospy
 from sensor_msgs.msg import JointState
