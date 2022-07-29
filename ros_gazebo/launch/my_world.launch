@@ -17,4 +17,6 @@
 
     <include file="$(find ros_gazebo)/launch/spawn.launch"></include>
     <include file="$(find ros_gazebo)/launch/rviz.launch"></include>
+
+    <include file="$(find ros_gazebo)/launch/join_state.launch"></include>
 </launch>
